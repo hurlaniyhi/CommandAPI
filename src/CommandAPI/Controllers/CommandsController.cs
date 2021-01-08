@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using CommandAPI.Data;
@@ -10,7 +11,7 @@ namespace CommandAPI.Controllers
     public class CommandsController : ControllerBase 
     // if we inherit from Controller and not ControllerBase, it will also provide additional support which we dont need
     {
-         private readonly ICommandAPIRepo _repository;
+        private readonly ICommandAPIRepo _repository;
         public CommandsController(ICommandAPIRepo repository)
         {
         _repository = repository;
@@ -25,14 +26,41 @@ namespace CommandAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Command> GetCommandById(int id)
+        public ActionResult<Command> GetCommandByIds(int id)
         {
         var commandItem = _repository.GetCommandById(id);
         if (commandItem == null)
         {
             return NotFound();
         }
+        Console.WriteLine("okay");
         return Ok(commandItem);
+        }
+
+
+        [HttpPost("olaniyi")]
+        public ActionResult<string> createCommands(Command cmd)
+        {
+        var commandItem = _repository.CreateCommand(cmd);
+        //Console.WriteLine(cmd.HowTo);
+        return Ok(commandItem);
+        }
+
+
+        [HttpPost("habeeb")]
+        public ActionResult<string> createCommands2(Command cmd)
+        {
+        var commandItem = _repository.CreateCommand2(cmd);
+        //Console.WriteLine(cmd.HowTo);
+        return Ok(commandItem);
+        }
+
+        
+        [HttpPatch]
+        public ActionResult<string> updateCommand(Command cmd)
+        {
+        var commandItem = _repository.UpdateCommand(cmd);
+        return (commandItem);
         }
 
 

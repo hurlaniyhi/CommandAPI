@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using CommandAPI.Models;
 
@@ -5,9 +6,18 @@ namespace CommandAPI.Data
 {
     public class MockCommandAPIRepo : ICommandAPIRepo  // we want this class to implement ICommandAPIRepo interface
     {
-        public void CreateCommand(Command cmd)
+        public string CreateCommand(Command cmd)
         {
-            throw new System.NotImplementedException();
+            // throw new System.NotImplementedException();
+            Console.WriteLine(cmd.Platform);
+            return "Product created";
+        }
+
+         public string CreateCommand2(Command cmd)
+        {
+            // throw new System.NotImplementedException();
+            Console.WriteLine(cmd.Platform);
+            return "Product created 2";
         }
 
         public void DeleteCommand(Command cmd)
@@ -50,9 +60,10 @@ namespace CommandAPI.Data
             throw new System.NotImplementedException();
         }
 
-        public void UpdateCommand(Command cmd)
+        public string UpdateCommand(Command cmd)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return "updated";
         }
     }
 }
