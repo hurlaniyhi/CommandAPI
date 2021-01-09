@@ -38,7 +38,7 @@ namespace CommandAPI.Controllers
         }
 
 
-        [HttpPost("olaniyi")]
+        [HttpPost]
         public ActionResult<string> createCommands(Command cmd)
         {
         var commandItem = _repository.CreateCommand(cmd);
@@ -47,12 +47,18 @@ namespace CommandAPI.Controllers
         }
 
 
+        // WE MAY NOT USE AN INTERFACE(REPOSITORY) AT ALL TO CREATE AN ENDPOINT
         [HttpPost("habeeb")]
-        public ActionResult<string> createCommands2(Command cmd)
+        public ActionResult<Command> createCommands2(Command cmd)
         {
-        var commandItem = _repository.CreateCommand2(cmd);
+        //var commandItem = _repository.CreateCommand2(cmd);  
         //Console.WriteLine(cmd.HowTo);
-        return Ok(commandItem);
+        return Ok(new Command{
+            Id = 0,
+            HowTo = "great",
+            Platform = ".net",
+            CommandLine = "normal"
+        });
         }
 
         
