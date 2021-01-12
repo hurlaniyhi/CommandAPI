@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using CommandAPI.Data;
 using CommandAPI.Models;
+using AutoMapper; 
+using CommandAPI.Dtos;
+
 
 namespace CommandAPI.Controllers
 {
@@ -12,18 +15,29 @@ namespace CommandAPI.Controllers
     // if we inherit from Controller and not ControllerBase, it will also provide additional support which we dont need
     {
         private readonly ICommandAPIRepo _repository;
-        public CommandsController(ICommandAPIRepo repository)
+        private readonly IMapper _mapper;
+        public CommandsController(ICommandAPIRepo repository, IMapper mapper)
         {
         _repository = repository;
+        _mapper = mapper;
         }
 
         
+        // [HttpGet]
+        // public ActionResult<IEnumerable<Command>> GetAllCommands()
+        // {
+        // var commandItems = _repository.GetAllCommands();
+        // return Ok(commandItems);
+        // }
+
+        /************** USING DTOs TO SEND RESPONSE TO THE CLIENT ****************/
         [HttpGet]
-        public ActionResult<IEnumerable<Command>> GetAllCommands()
+        public ActionResult<IEnumerable<CommandReadDto>> GetAllCommands()
         {
         var commandItems = _repository.GetAllCommands();
-        return Ok(commandItems);
+        return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(commandItems));
         }
+        /**************************************************************************/
 
         [HttpGet("{id}")]
         public ActionResult<Command> GetCommandByIds(int id)
@@ -33,19 +47,17 @@ namespace CommandAPI.Controllers
         {
             return NotFound();
         }
-        Console.WriteLine("okay");
         return Ok(commandItem);
         }
 
 
         [HttpPost]
-        public ActionResult<string> createCommands(Command cmd)
+        public ActionResult<Command> createCommands(Command cmd)
         {
         var commandItem = _repository.CreateCommand(cmd);
-        //Console.WriteLine(cmd.HowTo);
         return Ok(commandItem);
         }
-
+        
 
         // WE MAY NOT USE AN INTERFACE(REPOSITORY) AT ALL TO CREATE AN ENDPOINT
         [HttpPost("habeeb")]
@@ -62,10 +74,24 @@ namespace CommandAPI.Controllers
         }
 
         
-        [HttpPatch]
-        public ActionResult<string> updateCommand(Command cmd)
+        [HttpPut("{id}")]
+        public ActionResult<string> updateCommand(Command cmd, int id)
         {
-        var commandItem = _repository.UpdateCommand(cmd);
+            var commandModelFromRepo = _repository.GetCommandById(id);
+            if (commandModelFromRepo == null)
+            {
+                return NotFound("No record to update");
+            }
+            else{
+                var commandItem = _repository.UpdateCommand(cmd, id);
+                return (commandItem);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult<string> deleteCommand(int id)
+        {
+        var commandItem = _repository.DeleteCommand(id);
         return (commandItem);
         }
 

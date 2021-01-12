@@ -6,21 +6,25 @@ namespace CommandAPI.Data
 {
     public class MockCommandAPIRepo : ICommandAPIRepo  // we want this class to implement ICommandAPIRepo interface
     {
-        public string CreateCommand(Command cmd)
+        public Command CreateCommand(Command cmd)
         {
             // throw new System.NotImplementedException();
-            Console.WriteLine(cmd.Platform);
-            return "Product created";
+            //Console.WriteLine(cmd.Platform);
+            return new Command{
+                Id=0, HowTo="How to generate a migration",
+                CommandLine="dotnet ef migrations add <Name of Migration>",
+                Platform=".Net Core EF"
+            };
         }
 
          public string CreateCommand2(Command cmd)
         {
             // throw new System.NotImplementedException();
-            Console.WriteLine(cmd.Platform);
+            //Console.WriteLine(cmd.Platform);
             return "Product created 2";
         }
 
-        public void DeleteCommand(Command cmd)
+        public string DeleteCommand(int id)
         {
             throw new System.NotImplementedException();
         }
@@ -60,7 +64,7 @@ namespace CommandAPI.Data
             throw new System.NotImplementedException();
         }
 
-        public string UpdateCommand(Command cmd)
+        public string UpdateCommand(Command cmd, int id)
         {
             //throw new System.NotImplementedException();
             return "updated";

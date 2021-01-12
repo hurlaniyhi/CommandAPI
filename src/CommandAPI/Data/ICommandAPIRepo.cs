@@ -9,9 +9,10 @@ namespace CommandAPI.Data
         bool SaveChanges();
         IEnumerable<Command> GetAllCommands();
         Command GetCommandById(int id);
-        string CreateCommand(Command cmd);
+        Command CreateCommand(Command cmd);
         string CreateCommand2(Command cmd);
-        string UpdateCommand(Command cmd);
-        void DeleteCommand(Command cmd);
+        string UpdateCommand(Command cmd, int id);
+        string DeleteCommand(int id);
+        //void DeleteCommand(Command cmd);
     }
 }
