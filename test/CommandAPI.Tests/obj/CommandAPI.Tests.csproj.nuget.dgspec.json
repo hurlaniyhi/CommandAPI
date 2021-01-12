@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\commandAPISolution\\test\\CommandAPI.Tests\\CommandAPI.Tests.csproj": {}
+    "/Users/apple/Desktop/Softwares/CommandAPISolution/test/CommandAPI.Tests/CommandAPI.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\commandAPISolution\\src\\CommandAPI\\CommandAPI.csproj": {
+    "/Users/apple/Desktop/Softwares/CommandAPISolution/src/CommandAPI/CommandAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\commandAPISolution\\src\\CommandAPI\\CommandAPI.csproj",
+        "projectUniqueName": "/Users/apple/Desktop/Softwares/CommandAPISolution/src/CommandAPI/CommandAPI.csproj",
         "projectName": "CommandAPI",
-        "projectPath": "C:\\Users\\HP\\Desktop\\commandAPISolution\\src\\CommandAPI\\CommandAPI.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\commandAPISolution\\src\\CommandAPI\\obj\\",
+        "projectPath": "/Users/apple/Desktop/Softwares/CommandAPISolution/src/CommandAPI/CommandAPI.csproj",
+        "packagesPath": "/Users/apple/.nuget/packages/",
+        "outputPath": "/Users/apple/Desktop/Softwares/CommandAPISolution/src/CommandAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/apple/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -37,6 +37,30 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,21 +79,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\commandAPISolution\\test\\CommandAPI.Tests\\CommandAPI.Tests.csproj": {
+    "/Users/apple/Desktop/Softwares/CommandAPISolution/test/CommandAPI.Tests/CommandAPI.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\commandAPISolution\\test\\CommandAPI.Tests\\CommandAPI.Tests.csproj",
+        "projectUniqueName": "/Users/apple/Desktop/Softwares/CommandAPISolution/test/CommandAPI.Tests/CommandAPI.Tests.csproj",
         "projectName": "CommandAPI.Tests",
-        "projectPath": "C:\\Users\\HP\\Desktop\\commandAPISolution\\test\\CommandAPI.Tests\\CommandAPI.Tests.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\commandAPISolution\\test\\CommandAPI.Tests\\obj\\",
+        "projectPath": "/Users/apple/Desktop/Softwares/CommandAPISolution/test/CommandAPI.Tests/CommandAPI.Tests.csproj",
+        "packagesPath": "/Users/apple/.nuget/packages/",
+        "outputPath": "/Users/apple/Desktop/Softwares/CommandAPISolution/test/CommandAPI.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/apple/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -81,8 +105,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\commandAPISolution\\src\\CommandAPI\\CommandAPI.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\commandAPISolution\\src\\CommandAPI\\CommandAPI.csproj"
+              "/Users/apple/Desktop/Softwares/CommandAPISolution/src/CommandAPI/CommandAPI.csproj": {
+                "projectPath": "/Users/apple/Desktop/Softwares/CommandAPISolution/src/CommandAPI/CommandAPI.csproj"
               }
             }
           }
@@ -133,7 +157,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }
