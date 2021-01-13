@@ -32,7 +32,7 @@ namespace CommandAPI
             //builder.Username = Configuration["UserID"];
             //builder.Password = Configuration["Password"];
             builder.Username = Configuration["UserID"];
-            builder.Password = Configuration["Ridko5267$"];
+            builder.Password = Configuration["Password"];
 
             services.AddDbContext<CommandContext>(opt => opt.UseNpgsql(builder.ConnectionString));
 
