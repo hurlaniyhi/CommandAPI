@@ -31,8 +31,9 @@ namespace CommandAPI
             builder.ConnectionString = Configuration.GetConnectionString("PostgreSqlConnection");
             //builder.Username = Configuration["UserID"];
             //builder.Password = Configuration["Password"];
-            builder.Username = Configuration["UserID"];
-            builder.Password = Configuration["Password"];
+            builder.Username = "cmddbuser";
+            builder.Password = "Ridko5267$";
+            Console.WriteLine("the password = " + builder.ConnectionString);
 
             services.AddDbContext<CommandContext>(opt => opt.UseNpgsql(builder.ConnectionString));
 
@@ -44,6 +45,7 @@ namespace CommandAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, CommandContext context)
         {
+            // CommandContext context
             context.Database.Migrate();
             if (env.IsDevelopment())
             {
